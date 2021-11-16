@@ -3,7 +3,7 @@ import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import Link from 'next/link';
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const res = await fetch(`https://reqres.in/api/users`);
   const users = await res.json();
 
