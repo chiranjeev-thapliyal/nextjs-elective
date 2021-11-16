@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import styles from '../../styles/User.module.css';
 
 export const getStaticPaths = async () => {
   const res = await fetch('https://reqres.in/api/users');
@@ -28,13 +29,13 @@ export const getStaticProps = async (context) => {
 
 const User = ({ user }) => {
   return (
-    <div>
+    <div className={styles.userContainer}>
       <img src={user.avatar} alt='' />
-      <h3>{user.email}</h3>
+      <h3>ID: {user.id}</h3>
       <h3>
-        {user.first_name} {user.last_name}
+        Full Name: {user.first_name} {user.last_name}
       </h3>
-      <h3>My id is: {user.id}</h3>
+      <h3>Email: {user.email}</h3>
       <Link href='/'>Go Back</Link>
     </div>
   );
