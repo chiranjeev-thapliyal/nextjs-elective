@@ -16,11 +16,12 @@ export const getStaticProps = async () => {
 
 export default function Home({ users }) {
   return (
-    <div>
+    <div className={styles.container}>
       <h1>All Users</h1>
       {users?.data?.map((user) => {
         return (
-          <div>
+          <div className={styles.userContainer}>
+            <img src={user.avatar} alt={user.first_name} />
             <h3>{user.first_name}</h3>
             <Link href={`/users/` + user.id}>View More</Link>
           </div>
